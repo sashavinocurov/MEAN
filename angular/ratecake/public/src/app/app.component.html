@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<mat-card>
+  <div class="form">
+    <form (submit) ="addNewCake()">
+      <mat-form-field>
+        <input matInput
+          type="text"
+          [(ngModel)]="newCake.name"
+          name="name"
+          required
+          minlength="2"
+          placeholder="Bakers Name"
+          #name="ngModel">
+      </mat-form-field>
+      <mat-error *ngIf="name.invalid">Please Enter Bakers Name</mat-error>
+      <mat-form-field>
+      <input matInput
+        type="text"
+        name="image"
+        [(ngModel)]="newCake.image"
+        required
+        placeholder="Image Of the Cake"
+        #image="ngModel">
+      </mat-form-field>
+      <mat-error *ngIf="image.invalid">Please Enter Proper URL</mat-error>
+      <input mat-button color="accent"
+        *ngIf="name.valid && image.valid"
+        type="submit"
+        value="Add New Cake!">
+    </form>
+  </div>
+</mat-card>
+<mat-accordion multi="true" *ngIf="allCakes">
+  <mat-expansion-panel *ngFor="let cake of allCakes">
+    <mat-expansion-panel-header>
+      {{ cake.name }}
+    </mat-expansion-panel-header>
+    <img src="{{ cake.image }}" (click)="showCake(cake._id)" alt="Image of Cake" height="150" width="150">
+    <mat-action-row>
+      <form id="cake._id" (submit)="rateOneCake(cake._id)">
+        <mat-form-field>
+          <mat-label>Rate the Cake</mat-label>
+          <mat-select name="rateCake.rating" [(ngModel)]="rateCake.rating">
+            <mat-option value="5">5 Stars</mat-option>
+            <mat-option value="4">4 Stars</mat-option>
+            <mat-option value="3">3 Stars</mat-option>
+            <mat-option value="2">2 Stars</mat-option>
+            <mat-option value="1">1 Stars</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput name="rateCake.comment" [(ngModel)]="rateCake.comment" placeholder="Leave a Comment" cols="50" rows="3"></textarea>
+        </mat-form-field>
+        <input type="submit" mat-button color="primary" value="Rate & Comment">
+      </form>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<app-cake *ngIf="selectedCake" [showCake]="selectedCake"></app-cake>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,22 @@
+<div class="newrestaurant">
+  <button mat-raised-button color="primary" [routerLink]="['/restaurants/create']">Add New Restaurant</button>
+</div>
+
+<div class="table">
+  <table >
+    <thead>
+      <th> Restaurants: </th>
+      <th>Cuisine: </th>
+      <th>Actions Available:</th>
+    </thead>
+    <tbody *ngFor="let rest of restaurants">
+    <td> {{ rest['restName'] }}</td>
+    <td> {{ rest['cuisine'] }}</td>
+    <td>
+      <button mat-flat-button color="primary" [routerLink]="['/restaurants/', rest._id]">View Restaurant</button>
+      <button mat-flat-button color="accent" [routerLink]="['/restaurants/edit/', rest._id]">EDIT</button>
+      <button mat-flat-button color="warn" (click)="delete(rest._id)">DELETE</button>
+    </td>
+  </tbody>
+  </table>
+</div>

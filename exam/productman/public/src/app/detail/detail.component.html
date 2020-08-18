@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row"><h3>Detail About Product</h3></div>
+  <div class="row">
+    <h6>Name:</h6>
+    <p>  {{ oneProduct.name }}</p>
+  </div>
+  <div class="row">
+    <h6>Qty:</h6>
+    <p>  {{ oneProduct.qty }}</p>
+  </div>
+  <div class="row">
+    <h6>Price:</h6>
+    <p>  {{ oneProduct.price }}</p>
+  </div>
+  <div class="row">
+    <button (click)="goHome()" class="btn btn-primary mr-2">Back Home</button>
+    <button (click)="delete()" class="btn btn-danger" *ngIf="oneProduct.qty === 0">Delete Product</button>
+  </div>
+</div>

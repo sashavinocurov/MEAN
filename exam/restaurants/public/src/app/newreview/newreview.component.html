@@ -1,0 +1,39 @@
+<mat-card>
+    <h3>Review: </h3>
+    <form>
+    <mat-form-field>
+      <input type="text"
+            matInput
+            name="reviewer"
+            required
+            minlength="3"
+            [(ngModel)]="newReview.reviewer"
+            #reviewer
+            placeholder="Reviewer Name">
+      <mat-error *ngIf="reviewer.invalid">Reviewer Name Should Be at Lest 3 Symbols Long</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text"
+            matInput
+            name="review"
+            required
+            minlength="3"
+            [(ngModel)]="newReview.review"
+            #review
+            placeholder="Review">
+      <mat-error *ngIf="review.invalid">Review Should Be at Lest 3 Symbols Long</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Stars</mat-label>
+      <mat-select name="rate" [(ngModel)]="newReview.rate" #rate="ngModel">
+        <mat-option value="1">1 Star</mat-option>
+        <mat-option value="2">2 Star</mat-option>
+        <mat-option value="3">3 Star</mat-option>
+        <mat-option value="4">4 Star</mat-option>
+        <mat-option value="5">5 Star</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-flat-button color="accent" (click)="addReview()">Add Review</button>
+    <button mat-flat-button color="warn" (click)="goHome()">CANCEL</button>
+    </form>
+    </mat-card>

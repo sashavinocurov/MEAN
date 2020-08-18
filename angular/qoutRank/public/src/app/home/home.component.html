@@ -1,0 +1,20 @@
+<h1>Home Page</h1>
+<button [routerLink]="['/create']">Create New Restaurant</button><br>
+
+
+<table>
+  <thead>
+    <th>Restaurant</th>
+    <th>Cuisine</th>
+    <th>Action Available</th>
+  </thead>
+  <tbody *ngFor="let rest of restaurants">
+    <td>{{ rest['name'] }}</td>
+    <td>{{ rest['cuisine'] }}</td>
+    <td>
+      <button [routerLink]="['/detail/', rest._id]">View Restaurant</button>
+      <button [routerLink]="['/edit/', rest._id]">EDIT</button>
+      <button (click)="delete(rest._id)">Delete</button>
+    </td>
+  </tbody>
+</table>

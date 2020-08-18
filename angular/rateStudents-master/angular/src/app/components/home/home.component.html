@@ -1,0 +1,27 @@
+<h1>Welcome to the Dojo</h1>
+<div class="row">
+    <button class="btn btn-dark btn-sm" [routerLink]="['/newplaya']">Add fresh blood</button>
+</div>
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of allStudents">
+                <td>{{student.name}}</td>
+                <td>
+                    <div *ngIf="studentToRate._id != student._id">{{student.rating}}</div>
+                    <app-rate *ngIf="studentToRate._id == student._id" [student]="studentToRate" (onSubmit)="rateFool($event)"></app-rate>
+                </td>
+                <td><button class="btn btn-info btn-sm" (click)="rateThisFool(student)">Rate</button> 
+                     <button class="btn btn-warning btn-sm" [routerLink]="['/editThisSucka', student._id]">Edit</button> 
+                     <button class="btn btn-success btn-sm" (click)="giveThisHomieABelt(student)">Grant Belt</button>
+                     <button class="btn btn-dark btn-sm" (click)="deleteThisKid(student)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

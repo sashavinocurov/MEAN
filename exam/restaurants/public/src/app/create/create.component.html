@@ -1,0 +1,29 @@
+<mat-card>
+<h3>New Restaurant: </h3>
+<form>
+<mat-form-field>
+  <input type="text"
+        matInput
+        name="restName"
+        required
+        minlength="3"
+        [(ngModel)]="newRest.restName"
+        #restName
+        placeholder="Restaurant Name">
+  <mat-error *ngIf="restName.invalid">Restaurant Name Should Be at Lest 3 Symbols Long</mat-error>
+</mat-form-field>
+<mat-form-field>
+  <input type="text"
+        matInput
+        name="cuisine"
+        required
+        minlength="3"
+        [(ngModel)]="newRest.cuisine"
+        #cuisine
+        placeholder="Cuisine">
+  <mat-error *ngIf="cuisine.invalid">Cuisine Description Should Be at Lest 3 Symbols Long</mat-error>
+</mat-form-field>
+<button mat-flat-button color="accent" (click)="addRest()">Add new Restaurant</button>
+<button mat-flat-button color="warn" (click)="goHome()">CANCEL</button>
+</form>
+</mat-card>

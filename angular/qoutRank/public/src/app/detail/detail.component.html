@@ -1,0 +1,16 @@
+<h3>Detail Page</h3>
+<a href="/newreview/{{oneRest._id}}">Add a new review</a>
+<button [routerLink]="['/']">HOME</button>
+
+<table>
+  <thead>
+    <th>Customer</th>
+    <th>Stars</th>
+    <th>Description</th>
+  </thead>
+  <tbody *ngFor="let review of oneRest.reviews">
+    <td>{{ review.reviewerName }}</td>
+    <td>{{ review.stars }}</td>
+    <td>{{ review.comment }}</td>
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<h2>Register a restaurant</h2>
+<form>
+  <div *ngIf="name.invalid">Error!</div>
+  <p>Name:
+    <input
+    type="text"
+    name="name"
+    required
+    minlength="3"
+    [(ngModel)]="newRest.name"
+    #name = "ngModel"/>
+  </p>
+
+  <div *ngIf="cuisine.invalid">Error!</div>
+  <p>Cuisine
+    <input
+    type="text"
+    name="cuisine"
+    required
+    minlength="3"
+    [(ngModel)]="newRest.cuisine"
+    #cuisine = "ngModel"
+    >
+  </p>
+
+  <button (click)="addRest()">ADD</button>
+  <button (click)="goHome()">Cancel</button>
+</form>

@@ -1,0 +1,47 @@
+<form (submit)="editOnePet()">
+    <div class="error" *ngIf="petName.dirty">
+        <div *ngIf="!petName.valid">
+            <span style="color: red">Oops! mimimal Pet name length is 3!</span>
+        </div>
+    </div>
+    <label for="">Pet Name:</label>
+    <input type="text"
+    name="petName"
+    required
+    minlength="3"
+    [(ngModel)]="editPet.petName"
+    #petName="ngModel"
+    ><br>
+    <div class="error" *ngIf="petType.dirty">
+        <div *ngIf="!petType.valid">
+            <span style="color: red">Oops! mimimal Pet type is also should be  3 caracters!</span>
+        </div>
+    </div>
+    <label for="">Pet Type:</label>
+    <input type="text"
+    name="petType"
+    required
+    minlength="3"
+    [(ngModel)]="editPet.petType"
+    #petType="ngModel"
+    ><br>
+    <div class="error" *ngIf="description.dirty">
+        <div *ngIf="!description.valid">
+            <span style="color: red">Oops! mimimal Pet type is also should be  3 caracters!</span>
+        </div>
+    </div>
+    <label for="">Description:</label>
+    <input type="text"
+    name="description"
+    required
+    minlength="3"
+    [(ngModel)]="editPet.description"
+    #description="ngModel"
+    ><br>
+    <label for="">Skills:</label>
+    <input type="text" name="skill1" [(ngModel)]="editPet.skill1"  placeholder="Skill...">
+    <input type="text" name="skill2" [(ngModel)]="editPet.skill2"  placeholder="Skill...">
+    <input type="text" name="skill3" [(ngModel)]="editPet.skill3"  placeholder="Skill...">
+    <input *ngIf="petName.valid && petType.valid && description.valid" type="submit" (click)="editOnePet()" value="Edit our Pet" >
+    <input type="submit" (click)="navigateTo()" value="Cancel">
+</form>

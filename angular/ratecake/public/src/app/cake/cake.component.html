@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-header>
+    Baked by: {{ showCake.name }}
+  </mat-card-header>
+  <img src="{{ showCake.image }}" alt="Image of Cake" height="200">
+  <p>Average Rating: {{ showCake.avgRating }}</p>
+  <mat-card-footer *ngFor="let cake of showCake.comments">
+    <p>Reviews: {{ cake.comment }}, Rating: {{ cake.rating}}</p>
+  </mat-card-footer>
+</mat-card>

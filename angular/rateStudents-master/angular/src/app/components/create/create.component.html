@@ -1,0 +1,42 @@
+<div style="margin-top: 5%">
+    <div class="col-sm-6 offset-3 card">
+        <div class="form" style="margin-top: 10%; margin-bottom: 10%">
+            <div class="form-group row">
+                <div class="col-sm-6 offset-2 text-danger" *ngIf="submitted && name.errors">Invalid, try again.</div>
+                <label class="col-sm-3 offset-2" for="student.name">Name:</label>
+                <input 
+                    class="form-control col-sm-5" 
+                    type="text" 
+                    name="name" 
+                    [(ngModel)]="student.name" 
+                    minlength="4" 
+                    required #name="ngModel"
+                />
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6 offset-2 text-danger" *ngIf="submitted && ageError">You must be at least 18.</div>
+                <label class="col-sm-3 offset-2" for="student.age">Age:</label>
+                <input 
+                    class="form-control col-sm-5" 
+                    type="number" name="student.age" 
+                    [(ngModel)]="student.age" 
+                    required
+                />
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 offset-2" for="student.rating">Rating:</label>
+                <select class="col-sm-5" name="student.rating" [(ngModel)]="student.rating" required>
+                    <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+                    <option value="4">&#9733; &#9733; &#9733; &#9733;</option>
+                    <option value="3">&#9733; &#9733; &#9733;</option>
+                    <option value="2">&#9733; &#9733;</option>
+                    <option value="1">&#9733;</option>
+                    <option value="0">Ew, Gross</option>
+                </select>
+            </div>
+            <div class="form-group row offset-6">
+                <button class="btn btn-info btn-sm" (click)="submitForm()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

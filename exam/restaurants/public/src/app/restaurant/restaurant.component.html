@@ -1,0 +1,19 @@
+<h3> About Restaurant:</h3>
+<h5>{{ oneRest.restName }}</h5>
+<a href="/restaurants/reviews/{{oneRest._id}}">Add Review!</a>
+<button mat-raised-button color="warn" [routerLink]="['/restaurants']"> Go Back Home</button>
+
+<div class="table">
+  <table >
+    <thead>
+      <th>Reviewer Name: </th>
+      <th>Review: </th>
+      <th>Stars:</th>
+    </thead>
+    <tbody *ngFor="let review of oneRest.reviews">
+    <td> {{ review['reviewer'] }}</td>
+    <td> {{ review['review'] }}</td>
+    <td> {{ review.rate }}</td>
+  </tbody>
+  </table>
+</div>
